@@ -1,0 +1,729 @@
+@charset "UTF-8";
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans", Meiryo, sans-serif;
+    color: #666666;
+    font-size: 1rem;
+    line-height: 2;
+    font-feature-settings: "palt";
+}
+
+.orange {
+    color: #ff8040;
+}
+
+.orangebg {
+    background-color: #ff8040;
+    color: #fff;
+}
+
+/* bootstrapの文字色変更*/
+
+.nav-link,
+.list-group-item,
+.table th,
+.table td,
+.card-head,
+.card-body,
+.card-body p,
+.card-body h5,
+.recruit_hover p ,
+.bootstrap_color {
+    color: #666666;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ロゴ */
+.logoimg {
+    width: 100%;
+}
+
+/* 通常リンクとカレントリンク共通デザイン */
+.nav-link {
+    color: #666666; /* 通常時の色 */
+    position: relative;
+}
+
+/* カレントリンク */
+.nav-item.active a {
+    color: #ff8040;
+}
+
+.nav-item.active a::after,
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* カレントリンクのホバー時 */
+.nav-item.active a:hover::after,
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* カレントリンクは通常のリンクとは異なる色で */
+.nav-item.active a {
+    color: #ff8040;
+}
+
+/* 通常のリンクホバー時 */
+.nav-link:hover {
+    color: #808080;
+}
+
+/* サイドバーアイコン */
+
+.fixed-icons {
+    position: fixed; /* スクロールしても固定 */
+    top: 88%; /* 画面の垂直中央に配置 */
+    left: 50px; /* 左から20pxの位置に配置 */
+    transform: translateY(-50%); /* 垂直方向に中央寄せ */
+    display: flex;
+    flex-direction: column; /* アイコンを縦に並べる */
+    gap: 20px; /* アイコン同士の間隔 */
+}
+
+.fixed-icons .icon {
+    width: 50px; /* アイコンの幅を指定 */
+    height: 50px; /* アイコンの高さを指定 */
+    transition: transform 0.3s; /* ホバー時のアニメーション */
+}
+
+.fixed-icons .icon:hover {
+    animation: puyon 1s linear 0s 1;
+    animation-iteration-count: infinite;
+}
+@keyframes puyon {
+    0% {
+        transform: scale(1, 1) translate(0%, 0%);
+    }
+    40% {
+        transform: scale(0.95, 1.2) translate(0%, -10%);
+    }
+    50% {
+        transform: scale(1.1, 0.9) translate(0%, 5%);
+    }
+    60% {
+        transform: scale(0.95, 1.05) translate(0%, -3%);
+    }
+    70% {
+        transform: scale(1.05, 0.95) translate(0%, 3%);
+    }
+    80% {
+        transform: scale(1, 1) translate(0%, 0%);
+    }
+    100% {
+        transform: scale(1, 1) translate(0%, 0%);
+    }
+}
+
+.insta_btn {
+    display: inline-block;
+    text-align: center; /*中央揃え*/
+}
+
+.insta_btn .insta {
+    /*アイコンの背景*/
+    position: relative; /*相対配置*/
+    display: inline-block;
+    width: 50px; /*幅*/
+    height: 50px; /*高さ*/
+    background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%)
+        no-repeat;
+    background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat; /*グラデーション①*/
+    overflow: hidden; /*はみ出た部分を隠す*/
+    border-radius: 13px; /*角丸に*/
+}
+
+/* スマホ画面のスタイル */
+@media (max-width: 768px) {
+    .fixed-icons {
+        display: none;
+    }
+}
+
+.insta_btn .insta:before {
+    /*グラデーションを重ねるため*/
+    content: "";
+    position: absolute; /*絶対配置*/
+    top: 23px; /*ずらす*/
+    left: -18px; /*ずらす*/
+    width: 60px; /*グラデーションカバーの幅*/
+    height: 60px; /*グラデーションカバーの高さ*/
+    background: -webkit-radial-gradient(
+        #ffdb2c 10%,
+        rgba(255, 105, 34, 0.65) 55%,
+        rgba(255, 88, 96, 0) 70%
+    );
+    background: radial-gradient(
+        #ffdb2c 10%,
+        rgba(255, 105, 34, 0.65) 55%,
+        rgba(255, 88, 96, 0) 70%
+    ); /*グラデーション②*/
+}
+
+.insta_btn .fa-instagram {
+    /*アイコン*/
+    color: #fff; /*白に*/
+    position: relative; /*z-indexを使うため*/
+    z-index: 2; /*グラデーションより前に*/
+    font-size: 35px; /*アイコンサイズ*/
+    line-height: 50px; /*高さと合わせる*/
+}
+
+/* 上部カルーセル画像 */
+
+.carousel-item img,
+.top-img {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+}
+
+.blur {
+    width: 500px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    text-align: left;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
+    text-shadow: 2px 2px 10px #fff;
+}
+
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+/* タイトル */
+
+h2 {
+    position: relative;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    margin: 150px 50px;
+}
+
+h2:first-letter {
+    font-size: 200%;
+    color: #ff8040;
+}
+
+h2:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* 水平位置を50%に設定 */
+    transform: translateX(-50%); /* 水平位置を中央寄せ */
+    width: 50%;
+    height: 6px;
+    content: "";
+    border-radius: 3px;
+    background-image: -webkit-gradient(
+        linear,
+        right top,
+        left top,
+        from(#FDF5E6),
+        to(#ff8040)
+    );
+    background-image: -webkit-linear-gradient(right, #FDF5E6 0%, #ff8040 100%);
+    background-image: linear-gradient(to left, #FDF5E6 0%, #ff8040 100%);
+}
+
+/* お知らせ・休診日 */
+
+.box26 {
+    margin: auto;
+    padding: 2rem;
+    width: 700px;
+    border: 3px solid #ffa600;
+    border-radius: 15px;
+
+}
+
+.box26 li {
+    margin: 0;
+    color: #ff8040;
+    font-size: 1.5em;
+    border-bottom: 5px dashed #ffa600;
+}
+
+/* 事業内容 */
+.businessimg {
+    transition: transform 0.3s; /* カードにアニメーションを追加 */
+    width: 80%;
+    margin:auto;
+}
+
+.businessimg:hover {
+    transform: scale(1.1); /* ホバー時に少し浮く効果 */
+}
+
+.card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* 角を丸く */
+    overflow: hidden; /* カードの中の要素がはみ出ないように */
+    border: none;
+}
+
+.card_taketsu:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+.card_3h_care:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+.card_anki:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 10px 30px;
+    background-color: #fff;
+}
+
+.img-fluid-wrappe .img-fluid {
+    border-radius: 15px 0 0 10px; /* 画像の角も丸める */
+}
+
+.card-head {
+    /* font-family: HiraKakuProN-W3; */
+    /* font-size: 3rem; */
+    line-height: 1.2;
+    padding: 5px 3px;
+}
+
+/* カードimgのグラデーション */
+
+.img-fluid-wrapper {
+    position: relative;
+}
+
+.img-fluid {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-fluid-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+.tag_area0 ul {
+    margin: 3px;
+    padding: 0;
+}
+
+.tag_area0 ul li {
+    display: inline-block;
+    padding: 4px;
+    position: relative;
+    display: inline-block;
+}
+
+.tag_area0 li:before,
+.tag_area06 li:before {
+    content: "# ";
+}
+
+.tag_taketsu ul li {
+    color: #4169e1;
+}
+
+.tag_3h_care ul li {
+    color: #ff8040;
+}
+
+.tag_anki ul li {
+    color: #32cd32;
+}
+
+.detail:hover {
+    color: rgba(0, 0, 0, 0.386);
+}
+
+/* アクセス */
+.googlemap {
+    text-align: center;
+}
+
+.googlemap iframe {
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .googlemap {
+        overflow-x: scroll;
+    }
+}
+
+.fa-2x {
+    width: 20px;
+    margin: 0 2rem 2rem 0;
+}
+
+button {
+    margin: 10px 50px;
+}
+
+/* 採用情報 */
+
+.recruit_text {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.recruit_title {
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 3rem;
+}
+
+.recruit_hover p,
+.card-body p {
+    text-align: center;
+}
+
+/* ホバー時のカード全体の背景色変更とスムーズなトランジション */
+.recruit_hover {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 1px solid #ff8040;
+}
+
+.recruit_hover:hover {
+    background-color: #ff8040; /* オレンジ色に変更 */
+    transform: scale(1.05); /* 少し拡大 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+
+/* ホバー時のテキストとアイコンの色変更 */
+.card.recruit_hover:hover h3,
+.card.recruit_hover:hover p,
+.card.recruit_hover:hover i {
+    color: white; /* 文字とアイコンを白に変更 */
+    transition: color 0.3s ease; /* 色の変化をスムーズに */
+}
+
+.card.recruit_hover:hover i {
+    animation: bounce 0.5s infinite;
+    color: #fff; /* 色を白に変更 */
+}
+
+/* バウンスアニメーション */
+@keyframes bounce {
+    0%, 100% {
+        transform: translatex(0); /* 初期位置 */
+    }
+    50% {
+        transform: translatex(5px); /* 少し横に動かす */
+    }
+}
+
+
+
+/* 下部画像アニメーション */
+
+.slide-contents img {
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* カードに軽い影をつけて立体感を演出 */
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.slide-animation {
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    margin-top: 300px;
+}
+
+.slide-animation li {
+    width: 500px;
+    height: 400px;
+}
+
+.slide-contents {
+    display: flex;
+    gap: 10px;
+    animation: loopAnimation 30s linear infinite;
+}
+
+@keyframes loopAnimation {
+    0% {
+        transform: translate(0%);
+    }
+    100% {
+        transform: translate(-100%);
+    }
+}
+
+/* フッター */
+
+footer {
+    background-color: #F5F5F5;
+}
+
+address span {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    a[href^="tel:"] {
+        pointer-events: none;
+    }
+}
+
+/* 当院について */
+
+.features {
+    width: 80%;
+    margin: auto;
+}
+
+.f_item {
+    padding-bottom: 60px;
+}
+
+.f_title {
+    position: relative;
+    text-shadow: 0 0 2px white;
+    font-size: 4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.f_title small {
+    font-size: 1.5rem;
+}
+
+.f_title:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #ff8040 0%, rgba(255, 255, 255, 0) 50%);
+    border-radius: 50%;
+    transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
+    z-index: -1;
+}
+
+.f_title:hover:before {
+    width: 100%; /* ホバー時の円の大きさを調整 */
+    height: 200%;
+    background: radial-gradient(circle, #ff8040 0%, rgba(255, 255, 255, 0) 50%);
+}
+
+/* 取締役の言葉 */
+
+.under {
+    border-bottom: solid 3px #ff8040;
+  }
+
+/* カード内の右側画像設定 */
+.director img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block; /* 不要な隙間を削除 */
+}
+
+.director {
+    width: 80%;
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 0; /* カード全体の角丸 */
+    position: relative;
+    overflow: hidden; /* 擬似要素がはみ出さないように */
+    padding: 2em;
+    text-align: center;
+}
+
+.director::before,
+.director::after {
+    content: '';
+    width: 80px;
+    height: 50px;
+    position: absolute;
+}
+
+.director::before {
+    border-left: 8px solid #ff8040;
+    border-top: 8px solid #ff8040;
+    top: 0;
+    left: 0;
+}
+
+.director::after {
+    border-right: 8px solid #ff8040;
+    border-bottom: 8px solid #ff8040;
+    bottom: 0;
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .director {
+        width: 100%; /* スマホでは幅を80%に変更 */
+        max-width: 100%; /* スマホでは幅を80%に変更 */
+    }
+}
+
+.card-body h5 {
+    padding: 10px;
+    font-size: 3rem;
+}
+
+/* ３つの事業 */
+
+.business {
+    margin-bottom: 200px;
+    position: relative;
+}
+
+.business_img {
+    border-radius: 15px;
+    height: 50%;
+}
+
+.top-left {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+/* リスト */
+
+.tag_area06 ul {
+    margin: 5px;
+    padding: 0;
+}
+.tag_area06 ul li {
+    display: inline-block;
+    padding: 15px;
+    margin: 3px 5px;
+    position: relative;
+    display: inline-block;
+    line-height: 30px;
+    border-radius: 10px;
+}
+
+/* 診療日・休診日 */
+.box_business {
+    border: none;
+    width: auto;
+    /* overflow-x: scroll; */
+}
+.box_business th {
+    background-color: #f7f7f7;
+    font-size: 28px;
+    padding: 30px;
+}
+.box_business td {
+    font-size: 28px;
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .box_business {
+        overflow-x: scroll;
+    }
+}
+
+/* たけつ接骨院 */
+.card_taketsu1 {
+    box-shadow: 4px 4px 4px #4169e1;
+}
+.card_3h_care1 {
+    box-shadow: 4px 4px 4px #ff8c00;
+}
+.card_anki1 {
+    box-shadow: 4px 4px 4px #32cd32;
+}
+
+.card_taketsu1 h5 {
+    border-left: solid 10px #4169e1;
+    padding: 0.5em 1em;
+    margin-bottom: 5px;
+}
+
+/* スリーエイチケア */
+.card_3h_care1 h5 {
+    border-left: solid 10px #ff8c00;
+    padding: 0.5em 1em;
+    margin-bottom: 5px;
+}
+
+/* あんき */
+.card_anki1 h5 {
+    border-left: solid 10px #32cd32;
+    padding: 0.5em 1em;
+    margin-bottom: 5px;
+}
+
+/* 採用情報 */
+
+.recruit h5 {
+    border-bottom: 3px dotted #ff8040;
+    font-size: 3rem;
+}
+
+.recruit p {
+    margin-bottom: 2rem;
+}
+
+.employee table,
+.part-time table {
+    margin-bottom: 10rem;
+}
