@@ -1,8 +1,7 @@
 {
     "home": "ホーム",
-    "features": "当院について",
-    "staff": "スタッフ紹介",
+    "show": "当院について",
+    "Company_Profile": "会社概要",
     "access": "アクセス",
     "recruit": "採用情報"
-
 }

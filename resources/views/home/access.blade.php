@@ -12,14 +12,16 @@
 </div>
 @section('content')
     <h2>{{ __('access') }}</h2>
-    <div class="googlemap ">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.645896971821!2d139.7073709741438!3d35.80862552296809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018935fba2c1bb1%3A0x6e33f920b00a844b!2z44Gf44GR44Gk5o6l6aqo6Zmi!5e0!3m2!1sja!2sjp!4v1716292559314!5m2!1sja!2sjp"
-            width="1300" height="600" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="googlemap">
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.645896971821!2d139.7073709741438!3d35.80862552296809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018935fba2c1bb1%3A0x6e33f920b00a844b!2z44Gf44GR44Gk5o6l6aqo6Zmi!5e0!3m2!1sja!2sjp!4v1716292559314!5m2!1sja!2sjp"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
-    <div class="row flex-column flex-md-row">
-        <div class="col px-5 mt-5">
+
+    <div class="row p-5 d-flex justify-content-center">
+        <div class="col-sm">
             <ul class="list-group">
                 <li><i class="fa fa-home orange fa-2x"></i>　〒332‐0021　埼玉県川口市西川口4‐18‐24</li>
                 <li><i class="fa fa-phone orange fa-2x"></i>　TEL / FAX　048‐252-6644</li>
@@ -28,7 +30,7 @@
                 <li><i class="fa fa-bicycle orange fa-2x"></i>　駐輪場完備　バイクもOK</li>
             </ul>
         </div>
-        <div class="col px-5 mt-5">
+        <div class="col-sm">
             <table class="table py-4 text-center">
                 <tr>
                     <th scope="col"></th>
@@ -61,12 +63,17 @@
                     <td>-</td>
                 </tr>
             </table>
-            <p class="pull-right">※　営業時間は17：00まで</p>
-            <a href="tel:048‐252-6644">
-                <button class="btn orangebg" type="button"
-                    style="--bs-btn-padding-y: 1rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 2rem;">
-                    TEL / FAX　048‐252-6644</button>
-            </a>
+            <p class="pull-right">最終受付は診療時間30分前まで</p>
+            <br>
+            <br>
+            <p class="pull-right">※ 診療時間は17：00まで</p>
+            <div v class="telbutton mt-4">
+                <a href="tel:048‐252-6644">
+                    <button class="btn orangebg w-100 col-sm-6" type="button"
+                        style="--bs-btn-padding-y: 1rem; --bs-btn-font-size: 2rem;">
+                        TEL　048‐252-6644</button>
+                </a>
+            </div>
             <p class="orange text-center">※お越しの際は保険証をお持ちください。</p>
         </div>
     </div>
