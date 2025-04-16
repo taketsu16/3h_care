@@ -40,12 +40,12 @@
                         </li>
                         <li class="nav-item {{ Request::routeIs('home.show') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home.show') }}">
-                                {{ __('features') }}
+                                {{ __('show') }}
                             </a>
                         </li>
                         <li class="nav-item {{ Request::routeIs('home.staff') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home.staff') }}">
-                                {{ __('staff') }}
+                                {{ __('Company_Profile') }}
                             </a>
                         </li>
                         <li class="nav-item {{ Request::routeIs('home.access') ? 'active' : '' }}">
@@ -126,11 +126,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-secondary" href="{{ route('home.show') }}">
-                                {{ __('features') }}</a>
+                                {{ __('show') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-secondary" href="{{ route('home.show') }}">
-                                {{ __('staff') }}</a>
+                            <a class="nav-link link-secondary" href="{{ route('home.staff') }}">
+                                {{ __('Company_Profile') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-secondary" href="{{ route('home.access') }}">

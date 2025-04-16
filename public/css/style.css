@@ -29,7 +29,10 @@ body {
 .card-body p,
 .card-body h5,
 .recruit_hover p ,
-.bootstrap_color {
+.not_recruit,
+.bootstrap_color,
+.card-text
+ {
     color: #666666;
 }
 
@@ -146,12 +149,7 @@ a {
     border-radius: 13px; /*角丸に*/
 }
 
-/* スマホ画面のスタイル */
-@media (max-width: 768px) {
-    .fixed-icons {
-        display: none;
-    }
-}
+
 
 .insta_btn .insta:before {
     /*グラデーションを重ねるため*/
@@ -180,6 +178,30 @@ a {
     z-index: 2; /*グラデーションより前に*/
     font-size: 35px; /*アイコンサイズ*/
     line-height: 50px; /*高さと合わせる*/
+}
+
+@media (max-width: 768px) {
+    .fixed-icons {
+        position: fixed; /* ナビゲーション内に配置するため絶対配置 */
+        top: 44; /* ヘッダー上部に配置 */
+        left: auto; /* 左端からの配置を解除 */
+        right:100; /* 右側に寄せる */
+        flex-direction: row; /* アイコンを横並びに変更 */
+        gap: 20px; /* アイコン間の隙間を小さく */
+        padding: 10px; /* ナビバー内でのパディング調整 */
+        z-index: 1050; /* ナビバーより前面に表示 */
+    }
+
+    .fixed-icons .icon {
+        width: 40px; /* 小さい画面でアイコンサイズを縮小 */
+        height: 40px;
+    }
+
+    .insta_btn .insta,
+    .insta_btn .fa-instagram {
+        font-size: 25px; /* Instagramアイコンのサイズ縮小 */
+        line-height: 40px;
+    }
 }
 
 /* 上部カルーセル画像 */
@@ -267,7 +289,6 @@ h2:after {
     width: 700px;
     border: 3px solid #ffa600;
     border-radius: 15px;
-
 }
 
 .box26 li {
@@ -277,15 +298,34 @@ h2:after {
     border-bottom: 5px dashed #ffa600;
 }
 
-/* 事業内容 */
-.businessimg {
-    transition: transform 0.3s; /* カードにアニメーションを追加 */
-    width: 80%;
-    margin:auto;
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .box26 {
+        width: 90%; /* 画面幅の90%に縮小 */
+        padding: 1rem; /* パディングを小さく */
+    }
+
+    .box26 li {
+        font-size: 1.2em; /* フォントサイズを縮小 */
+    }
 }
 
-.businessimg:hover {
-    transform: scale(1.1); /* ホバー時に少し浮く効果 */
+@media (max-width: 480px) {
+    .box26 {
+        width: 100%; /* 画面幅いっぱいにする */
+        padding: 0.5rem; /* パディングをさらに小さく */
+    }
+
+    .box26 li {
+        font-size: 1em; /* フォントサイズをさらに縮小 */
+    }
+}
+
+/* 事業内容 */
+
+.businessimg {
+    margin:auto;
+    width: auto;
 }
 
 .card {
@@ -295,19 +335,18 @@ h2:after {
     border: none;
 }
 
-.card_taketsu:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-.card_3h_care:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-.card_anki:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
 .card-body {
     padding: 10px 30px;
     background-color: #fff;
+}
+
+.card-body  {
+    padding: 10px 30px;
+    background-color: #fff;
+}
+
+.card-body .card-text{
+    text-align: left;
 }
 
 .img-fluid-wrappe .img-fluid {
@@ -315,99 +354,80 @@ h2:after {
 }
 
 .card-head {
-    /* font-family: HiraKakuProN-W3; */
-    /* font-size: 3rem; */
+    font-size: 1.5rem;
     line-height: 1.2;
-    padding: 5px 3px;
 }
 
-/* カードimgのグラデーション */
-
-.img-fluid-wrapper {
-    position: relative;
+.card-footer {
+    text-align: center;
+}
+.card-footer a,
+.card-footer i{
+    color: #fff;
 }
 
-.img-fluid {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* ホバー時のテキストとアイコンの色変更 */
+.card-footer:hover i {
+    transition: color 0.3s ease; /* 色の変化をスムーズに */
+    animation: bounce 0.5s infinite;
 }
 
-.img-fluid-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 1) 100%
-    );
+.card-footer:hover {
+    opacity: 80%;
 }
 
-.tag_area0 ul {
-    margin: 3px;
-    padding: 0;
+/* バウンスアニメーション */
+@keyframes bounce {
+    0%, 100% {
+        transform: translatex(0); /* 初期位置 */
+    }
+    50% {
+        transform: translatex(5px); /* 少し横に動かす */
+    }
 }
 
-.tag_area0 ul li {
-    display: inline-block;
-    padding: 4px;
-    position: relative;
-    display: inline-block;
-}
 
-.tag_area0 li:before,
-.tag_area06 li:before {
-    content: "# ";
-}
-
-.tag_taketsu ul li {
-    color: #4169e1;
-}
-
-.tag_3h_care ul li {
-    color: #ff8040;
-}
-
-.tag_anki ul li {
-    color: #32cd32;
-}
-
-.detail:hover {
-    color: rgba(0, 0, 0, 0.386);
-}
 
 /* アクセス */
 .googlemap {
     text-align: center;
 }
 
-.googlemap iframe {
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    display: inline-block;
+.map-container {
+    position: relative;
+    width: 100%; /* 幅をレスポンシブ対応 */
+    max-width: 1300px; /* 最大幅を指定 */
+    margin: auto; /* センター配置 */
+    padding-top: 46.15%; /* 高さを16:9の比率に調整 (600 / 1300 ≈ 46.15%) */
 }
 
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 30px;
+}
+
+/* レスポンシブ対応で縮小 */
 @media (max-width: 768px) {
-    .googlemap {
-        overflow-x: scroll;
+    .map-container {
+        padding-top: 56.25%; /* 高さを16:9に調整 */
     }
 }
 
+
 .fa-2x {
-    width: 20px;
-    margin: 0 2rem 2rem 0;
+    width: 1.5rem;
+    margin: 0 1rem 2rem 0;
 }
 
-button {
-    margin: 10px 50px;
-}
+.telbutton {
+    pointer-events: none;
+  }
+
 
 /* 採用情報 */
 
@@ -443,7 +463,7 @@ button {
 .card.recruit_hover:hover h3,
 .card.recruit_hover:hover p,
 .card.recruit_hover:hover i {
-    color: white; /* 文字とアイコンを白に変更 */
+    color: #fff; /* 文字とアイコンを白に変更 */
     transition: color 0.3s ease; /* 色の変化をスムーズに */
 }
 
@@ -462,7 +482,24 @@ button {
     }
 }
 
+/* 募集停止中 */
+.not_recruit{
+    background-color: #808080;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
+/* 中央に配置するテキスト */
+.center_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 0.2em; /* 文字の間隔 */
+}
 
 /* 下部画像アニメーション */
 
@@ -568,7 +605,7 @@ address span {
 
 /* 取締役の言葉 */
 
-.under {
+.director_under {
     border-bottom: solid 3px #ff8040;
   }
 
@@ -627,37 +664,83 @@ address span {
 
 /* ３つの事業 */
 
+.taketsu_under{
+    border-bottom: solid 3px #2C7CFF;
+}
+
+.taketsu_detail p{
+    border-top: dotted 1px #2C7CFF;
+    padding: 30px 10px;
+    margin: 30px 10px;}
+
+.taketsu_card,
+.taketsu_card th,
+.taketsu_card td{
+    background-color:#F0F8FF;
+}
+
+.threeh_under{
+    border-bottom: solid 3px #FF8856;
+}
+
+.threeh_detail h5{
+    border-top: dotted 1px #FF8856;
+    padding-top: 15px;
+    margin: 10px;
+    color: #FF8856;
+    font-weight: 600;
+}
+
+.threeh_detail p{
+    padding: 0 30px;
+}
+
+.threeh_card,
+.threeh_card th,
+.threeh_card td{
+    background-color:#FFF5EE;
+}
+
+.anki_under{
+    border-bottom: solid 3px #00CC66;
+}
+
+.anki_detail p{
+    border-top: dotted 1px #00CC66;
+    padding: 30px 10px;
+    margin: 30px 10px;
+}
+
+.anki_card,
+.anki_card th,
+.anki_card td{
+    background-color:#F0FFF0;
+}
+
+.table {
+    margin: 40px 0 0 0;
+}
+
 .business {
-    margin-bottom: 200px;
-    position: relative;
+    width: 100%;
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 50px; /* カード間の縦幅を開ける */
 }
 
-.business_img {
-    border-radius: 15px;
-    height: 50%;
+@media (max-width: 768px) {
+    .business {
+        width: 100%;
+        max-width: 100%;
+    }
+    .card-title{
+        font-size: 32px;
+        font-weight: 600;
+        text-align: center;
+    }
 }
 
-.top-left {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-}
 
-/* リスト */
-
-.tag_area06 ul {
-    margin: 5px;
-    padding: 0;
-}
-.tag_area06 ul li {
-    display: inline-block;
-    padding: 15px;
-    margin: 3px 5px;
-    position: relative;
-    display: inline-block;
-    line-height: 30px;
-    border-radius: 10px;
-}
 
 /* 診療日・休診日 */
 .box_business {
@@ -675,41 +758,44 @@ address span {
     padding: 30px;
 }
 
+/* 会社概要 */
+.Company_Profile{
+    width: 60%;
+    margin: auto;
+}
+
 @media (max-width: 768px) {
-    .box_business {
-        overflow-x: scroll;
+    .Company_Profile {
+        width: 90%;
+        margin: auto;
     }
-}
 
-/* たけつ接骨院 */
-.card_taketsu1 {
-    box-shadow: 4px 4px 4px #4169e1;
-}
-.card_3h_care1 {
-    box-shadow: 4px 4px 4px #ff8c00;
-}
-.card_anki1 {
-    box-shadow: 4px 4px 4px #32cd32;
-}
+    .mobile-stacked tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #dee2e6;
+      }
 
-.card_taketsu1 h5 {
-    border-left: solid 10px #4169e1;
-    padding: 0.5em 1em;
-    margin-bottom: 5px;
-}
+      .mobile-stacked th,
+      .mobile-stacked td {
+        display: block;
+        width: 100%;
+        text-align: left !important;
+        padding: 0.5rem 0;
+      }
 
-/* スリーエイチケア */
-.card_3h_care1 h5 {
-    border-left: solid 10px #ff8c00;
-    padding: 0.5em 1em;
-    margin-bottom: 5px;
-}
+      .mobile-stacked th {
+        font-weight: bold;
+        color: #6c757d;
+        border: none;
+        border-bottom: 0;
+      }
 
-/* あんき */
-.card_anki1 h5 {
-    border-left: solid 10px #32cd32;
-    padding: 0.5em 1em;
-    margin-bottom: 5px;
+      .mobile-stacked td {
+        border: none;
+        padding-top: 0;
+      }
+
 }
 
 /* 採用情報 */
@@ -719,11 +805,47 @@ address span {
     font-size: 3rem;
 }
 
+.recruit{
+    width: 80%;
+    margin: auto;
+}
+
 .recruit p {
     margin-bottom: 2rem;
 }
 
-.employee table,
-.part-time table {
+.recruit_content {
     margin-bottom: 10rem;
+    width: 80%;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+
+    .stacked tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .stacked th,
+      .stacked td {
+        display: block;
+        width: 100%;
+        text-align: left !important;
+        padding: 0.5rem 0;
+      }
+
+      .stacked th {
+        font-weight: bold;
+        color: #6c757d;
+        border: none;
+        border-bottom: 0;
+      }
+
+      .stacked td {
+        border: none;
+        padding-top: 0;
+      }
+
 }
